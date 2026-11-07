@@ -1,0 +1,267 @@
+'use strict';
+
+// element toggle function
+const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
+
+
+
+// sidebar variables
+const sidebar = document.querySelector("[data-sidebar]");
+const sidebarBtn = document.querySelector("[data-sidebar-btn]");
+
+// sidebar toggle functionality for mobile
+sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
+
+
+
+// testimonials variables
+const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
+const modalContainer = document.querySelector("[data-modal-container]");
+const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
+const overlay = document.querySelector("[data-overlay]");
+
+// modal variable
+const modalImg = document.querySelector("[data-modal-img]");
+const modalTitle = document.querySelector("[data-modal-title]");
+const modalText = document.querySelector("[data-modal-text]");
+
+// modal toggle function
+const testimonialsModalFunc = function () {
+  modalContainer.classList.toggle("active");
+  overlay.classList.toggle("active");
+}
+
+// add click event to all modal items
+for (let i = 0; i < testimonialsItem.length; i++) {
+
+  testimonialsItem[i].addEventListener("click", function () {
+
+    modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
+    modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
+    modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
+    modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
+
+    testimonialsModalFunc();
+
+  });
+
+}
+
+// add click event to modal close button
+modalCloseBtn.addEventListener("click", testimonialsModalFunc);
+overlay.addEventListener("click", testimonialsModalFunc);
+
+
+
+// contact form variables
+const form = document.querySelector("[data-form]");
+const formInputs = document.querySelectorAll("[data-form-input]");
+const formBtn = document.querySelector("[data-form-btn]");
+
+// add event to all form input field
+for (let i = 0; i < formInputs.length; i++) {
+  formInputs[i].addEventListener("input", function () {
+
+    // check form validation
+    if (form.checkValidity()) {
+      formBtn.removeAttribute("disabled");
+    } else {
+      formBtn.setAttribute("disabled", "");
+    }
+
+  });
+}
+
+
+
+// page navigation variables
+const navigationLinks = document.querySelectorAll("[data-nav-link]");
+const pages = document.querySelectorAll("[data-page]");
+
+// add event to all nav link
+for (let i = 0; i < navigationLinks.length; i++) {
+  navigationLinks[i].addEventListener("click", function () {
+
+    const clickedPage = this.innerHTML.toLowerCase();
+
+    for (let i = 0; i < pages.length; i++) {
+      if (clickedPage === pages[i].dataset.page) {
+        pages[i].classList.add("active");
+        navigationLinks[i].classList.add("active");
+        window.scrollTo(0, 0);
+      } else {
+        pages[i].classList.remove("active");
+        navigationLinks[i].classList.remove("active");
+      }
+    }
+
+    history.replaceState(null, "", clickedPage === "about" ? window.location.pathname : `#${clickedPage}`);
+
+  });
+}
+
+// activate a page based on URL hash (e.g. index.html#portfolio)
+window.addEventListener('load', function () {
+  const hash = window.location.hash.replace('#', '');
+  if (hash) {
+    const targetPage = document.querySelector(`[data-page="${hash}"]`);
+    const targetNavLink = Array.from(navigationLinks).find(
+      (link) => link.innerHTML.toLowerCase() === hash
+    );
+
+    if (targetPage) {
+      pages.forEach((page) => page.classList.remove('active'));
+      navigationLinks.forEach((link) => link.classList.remove('active'));
+
+      targetPage.classList.add('active');
+      if (targetNavLink) targetNavLink.classList.add('active');
+    }
+
+    // clear the hash right after using it, so a later refresh defaults back to About
+    history.replaceState(null, "", window.location.pathname);
+  }
+});
+
+
+
+/* "View all projects" box -> switches to the Portfolio tab */
+document.querySelectorAll("[data-goto-portfolio]").forEach(function (link) {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+    var portfolioTab = Array.from(document.querySelectorAll("[data-nav-link]"))
+      .find(function (btn) { return btn.textContent.trim().toLowerCase() === "portfolio"; });
+    if (portfolioTab) portfolioTab.click();   // reuses your existing tab-switching code
+    window.scrollTo(0, 0);
+  });
+});
+
+
+
+/* Contact form -> Web3Forms */
+(function () {
+  var form = document.getElementById("contact-form");
+  if (!form) return;
+
+  var btn = form.querySelector("[data-form-btn]");
+  var label = btn.querySelector("span");
+  var statusEl = document.getElementById("form-status");
+
+  function setStatus(text, type) {
+    statusEl.textContent = text;
+    statusEl.className = "form-status " + (type || "");
+  }
+
+  // enable the button only when the form is valid
+  form.querySelectorAll("[data-form-input]").forEach(function (input) {
+    input.addEventListener("input", function () {
+      btn.disabled = !form.checkValidity();
+    });
+  });
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+
+    btn.disabled = true;
+    label.textContent = "Sending...";
+    setStatus("", "");
+
+    try {
+      var response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(Object.fromEntries(new FormData(form)))
+      });
+      var result = await response.json();
+
+      if (response.ok && result.success) {
+        setStatus("Thank you! Your message has been sent.", "success");
+        form.reset();
+      } else {
+        throw new Error(result.message || "Something went wrong.");
+      }
+    } catch (err) {
+      setStatus("Message not sent. Please try again or email me directly at sidratulmuntaha135@gmail.com.", "error");
+    } finally {
+      label.textContent = "Send message";
+      btn.disabled = !form.checkValidity();
+    }
+  });
+})();
+
+
+/* Stats counter */
+
+(function () {
+  var section = document.querySelector(".stats");
+  if (!section) return;
+
+  var counters = section.querySelectorAll("[data-count]");
+  var reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  var DURATION = 2000; // All counters finish in 2 seconds
+
+  function showFinal(el) {
+    cancelAnimationFrame(el._animation);
+    el.textContent = el.dataset.count;
+  }
+
+  function start(el) {
+    var target = parseInt(el.dataset.count, 10);
+
+    cancelAnimationFrame(el._animation);
+
+    if (reduceMotion || target <= 0) {
+      showFinal(el);
+      return;
+    }
+
+    var startTime = null;
+
+    function animate(timestamp) {
+      if (!startTime) startTime = timestamp;
+
+      var elapsed = timestamp - startTime;
+      var progress = Math.min(elapsed / DURATION, 1);
+
+      /*
+       * Smooth easing
+       */
+      var easedProgress =
+        1 - Math.pow(1 - progress, 3);
+
+      var current = Math.floor(target * easedProgress);
+
+      el.textContent = current;
+
+      if (progress < 1) {
+        el._animation = requestAnimationFrame(animate);
+      } else {
+        el.textContent = target;
+      }
+    }
+
+    el._animation = requestAnimationFrame(animate);
+  }
+
+  if (!("IntersectionObserver" in window)) {
+    counters.forEach(showFinal);
+    return;
+  }
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        counters.forEach(start);
+        observer.unobserve(section);
+      }
+    });
+  }, {
+    threshold: 0.4
+  });
+
+  observer.observe(section);
+})();
+
