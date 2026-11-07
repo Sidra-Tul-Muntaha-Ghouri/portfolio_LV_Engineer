@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sidra Tul Muntaha | LV Switchgear Design &amp; Power System Studies</title>
+<meta name="description" content="Freelance electrical design engineer: LV switchgear panel design (MCC, PCC, PFC, DB) in EPLAN &amp; AutoCAD, plus load flow, short circuit and protection coordination studies. Get a quote.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#f4f6fa;--ink:#0b1b33;--mut:#5a6a82;--line:#e2e7ef;--brand:#0b2a55;--acc:#f5a300;--acc-ink:#1a1200;--card:#fff;--hero:linear-gradient(135deg,#0b2a55,#12408a)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a1424;--bg2:#0e1c33;--ink:#eaf0fa;--mut:#9fb0c9;--line:#1e3050;--brand:#7fb0ff;--card:#102039;--hero:linear-gradient(135deg,#081a36,#0f3a7a)}}
+:root[data-theme="dark"]{--bg:#0a1424;--bg2:#0e1c33;--ink:#eaf0fa;--mut:#9fb0c9;--line:#1e3050;--brand:#7fb0ff;--card:#102039;--hero:linear-gradient(135deg,#081a36,#0f3a7a)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+img{max-width:100%}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+.alt{background:var(--bg2)}
+h1,h2,h3{line-height:1.2;margin:0 0 .5em}
+h2{font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:800}
+.eyebrow{color:var(--acc);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:.8rem;margin-bottom:8px}
+.sub{color:var(--mut);max-width:640px;margin:0 0 36px}
+.btn{display:inline-block;padding:13px 24px;border-radius:10px;font-weight:700;text-decoration:none;border:2px solid transparent;cursor:pointer;font:inherit;font-weight:700}
+.btn-p{background:var(--acc);color:var(--acc-ink)}
+.btn-p:hover{filter:brightness(1.07)}
+.btn-o{border-color:rgba(255,255,255,.5);color:#fff}
+.btn-o:hover{background:rgba(255,255,255,.12)}
+header{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{font-weight:800;text-decoration:none;color:var(--brand);font-size:1.05rem}
+.logo span{color:var(--acc)}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+nav a{text-decoration:none;font-size:.92rem;color:var(--mut);font-weight:500}
+nav a:hover{color:var(--ink)}
+.nav .btn{padding:9px 16px;font-size:.9rem}
+@media(max-width:860px){nav ul{display:none}}
+.hero{background:var(--hero);color:#fff;padding:80px 0 72px}
+.hero-grid{display:grid;grid-template-columns:1.3fr .8fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.hero p{color:#cfdcf2;font-size:1.1rem;max-width:560px}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0 18px}
+.ticks{display:flex;gap:18px;flex-wrap:wrap;font-size:.9rem;color:#cfdcf2;padding:0;list-style:none;margin:0}
+.ticks li::before{content:"✓ ";color:var(--acc);font-weight:700}
+.portrait{justify-self:center;width:min(300px,70vw);aspect-ratio:1;border-radius:50%;object-fit:cover;border:6px solid rgba(255,255,255,.2);background:#1b4a96}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr}.portrait{order:-1;width:170px}}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:-40px;position:relative}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.stat b{display:block;font-size:2rem;color:var(--brand);font-weight:800}
+.stat span{color:var(--mut);font-size:.88rem}
+@media(max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}}
+.logos{display:flex;flex-wrap:wrap;gap:26px 36px;align-items:center;justify-content:center;margin-top:24px}
+.logos img{height:44px;width:auto;filter:grayscale(1);opacity:.7;background:#fff;border-radius:6px;padding:4px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px}
+.card h3{font-size:1.1rem}
+.card p,.card li{color:var(--mut);font-size:.95rem;margin:0}
+.card ul{padding-left:18px;margin:10px 0 0}
+.ico{width:44px;height:44px;border-radius:10px;background:var(--bg2);display:grid;place-items:center;font-size:1.3rem;margin-bottom:14px}
+.feature{border:2px solid var(--acc)}
+.tag{display:inline-block;background:var(--acc);color:var(--acc-ink);font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:99px;margin-bottom:10px}
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.step{counter-increment:s;padding:24px;border-left:3px solid var(--acc);background:var(--card);border-radius:0 12px 12px 0;border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.step::before{content:"0" counter(s);font-weight:800;color:var(--acc);font-size:1.3rem}
+.step h3{font-size:1.02rem;margin:4px 0}
+.step p{margin:0;color:var(--mut);font-size:.92rem}
+.proj a{text-decoration:none;display:block;height:100%}
+.proj small{color:var(--acc);font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:.72rem}
+.proj .more{color:var(--brand);font-weight:700;font-size:.9rem;margin-top:12px;display:block}
+.quote p{font-size:.96rem;color:var(--ink)}
+.quote footer{margin-top:14px;font-size:.85rem;color:var(--mut)}
+.quote footer b{color:var(--ink);display:block}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:12px}
+summary{font-weight:700;cursor:pointer}
+details p{color:var(--mut);margin:10px 0 0}
+.contact{background:var(--hero);color:#fff}
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:start}
+@media(max-width:860px){.contact-grid{grid-template-columns:1fr}}
+.contact p{color:#cfdcf2}
+.clist{list-style:none;padding:0;margin:22px 0;display:grid;gap:10px}
+.clist a{color:#fff}
+form{background:var(--card);color:var(--ink);border-radius:16px;padding:26px;display:grid;gap:14px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:560px){.row{grid-template-columns:1fr}}
+label{font-size:.82rem;font-weight:600;display:grid;gap:5px}
+input,select,textarea{font:inherit;padding:11px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);width:100%}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--acc);border-color:transparent}
+.fbtns{display:flex;gap:10px;flex-wrap:wrap}
+.fbtns .btn{flex:1;text-align:center}
+.btn-wa{background:#25d366;color:#04230f}
+.btn-em{background:var(--brand);color:#fff}
+:root[data-theme="dark"] .btn-em{color:#04122a}
+.note{font-size:.78rem;color:var(--mut);margin:0}
+footer.site{padding:28px 0;border-top:1px solid var(--line);color:var(--mut);font-size:.88rem}
+footer.site .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.wa-float{position:fixed;right:18px;bottom:18px;z-index:30;background:#25d366;color:#04230f;font-weight:700;text-decoration:none;padding:12px 18px;border-radius:99px;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+</style>
+</head>
+<body>
+
+<header>
+<div class="wrap nav">
+  <a class="logo" href="#top">Sidra Tul Muntaha<span>.</span></a>
+  <nav><ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#studies">Power Studies</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul></nav>
+  <a class="btn btn-p" href="#quote">Get a Quote</a>
+</div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+<div class="wrap hero-grid">
+  <div>
+    <div class="eyebrow">Electrical Design Engineer · Karachi, Pakistan</div>
+    <h1>LV switchgear design &amp; <em>power system studies</em> you can build and trust.</h1>
+    <p>Panel designs, schematics and studies delivered to IEC standards, trusted on 50+ industrial and giga-projects across the Middle East. Tell me what you need and get a clear quote within 24 hours.</p>
+    <div class="cta-row">
+      <a class="btn btn-p" href="#quote">Request a Free Quote</a>
+      <a class="btn btn-o" href="https://wa.me/923402367511?text=Hi%20Sidra%2C%20I%20need%20a%20quote%20for%20an%20electrical%20project." target="_blank" rel="noopener">Chat on WhatsApp</a>
+    </div>
+    <ul class="ticks"><li>IEC-compliant designs</li><li>EPLAN · AutoCAD · ETAP</li><li>Fast turnaround</li></ul>
+  </div>
+  <img class="portrait" src="assets/images/Profile_picture/sidra-01.jpeg" alt="Sidra Tul Muntaha, Electrical Design Engineer">
+</div>
+</section>
+
+<div class="wrap">
+  <div class="stats">
+    <div class="stat"><b>5+</b><span>Years of experience</span></div>
+    <div class="stat"><b>50+</b><span>Industrial projects</span></div>
+    <div class="stat"><b>700+</b><span>Panels designed</span></div>
+    <div class="stat"><b>5000A</b><span>Max panel rating</span></div>
+  </div>
+</div>
+
+<section style="padding-bottom:32px">
+<div class="wrap" style="text-align:center">
+  <div class="eyebrow">Projects delivered for teams working with</div>
+  <div class="logos">
+    <img src="assets/images/project-logos/saudi-aramco-seeklogo.png" alt="Saudi Aramco">
+    <img src="assets/images/project-logos/neom-seeklogo.png" alt="NEOM">
+    <img src="assets/images/project-logos/red-sea-global-seeklogo.png" alt="Red Sea Global">
+    <img src="assets/images/project-logos/king-salman-park-seeklogo.png" alt="King Salman Park">
+    <img src="assets/images/project-logos/diriyah-gate-development-authority-seeklogo.png" alt="Diriyah Gate">
+    <img src="assets/images/project-logos/king-abdullah-petroleum-studies-research-center-seeklogo.png" alt="KAPSARC">
+    <img src="assets/images/project-logos/addresshotelsandresorts.png" alt="Address Hotels and Resorts">
+    <img src="assets/images/project-logos/saudi-entertainment-ventures-seven-seeklogo.png" alt="Seven">
+    <img src="assets/images/project-logos/jazan-economic-zone.png" alt="Jazan Economic City">
+    <img src="assets/images/project-logos/retal.png" alt="Retal">
+  </div>
+</div>
+</section>
+
+<section id="services">
+<div class="wrap">
+  <div class="eyebrow">Services</div>
+  <h2>Design support for panel builders, contractors &amp; consultants</h2>
+  <p class="sub">Work with me as an extension of your engineering team: project-based, or on an ongoing basis.</p>
+  <div class="grid">
+    <div class="card feature"><span class="tag">MOST REQUESTED</span><h3>LV Switchgear Panel Design</h3><p>Complete design of PCCs, MCCs, PFC panels and distribution boards (MDB, SMDB, DB) up to 5000A, built around your enclosure system.</p>
+      <ul><li>Component, busbar &amp; cable sizing</li><li>Form 3B / 4B arrangements</li><li>DOL, Star-Delta &amp; VFD starters</li></ul></div>
+    <div class="card feature"><span class="tag">MOST REQUESTED</span><h3>Power System Studies</h3><p>Engineering studies that confirm your system is safe, protected and correctly rated before you build.</p>
+      <ul><li>Load flow analysis</li><li>Short circuit analysis</li><li>Protection coordination</li></ul></div>
+    <div class="card"><div class="ico">📐</div><h3>Drafting &amp; Documentation</h3><p>Workshop-ready EPLAN and AutoCAD drawings: single line diagrams, power and control schematics, GA layouts, cable schedules and IO lists.</p></div>
+    <div class="card"><div class="ico">🧾</div><h3>BOM &amp; Estimation</h3><p>Accurate bills of materials and cost sheets from tender drawings and specifications, so you can bid with confidence.</p></div>
+    <div class="card"><div class="ico">☀️</div><h3>Solar PV System Design</h3><p>System sizing, load calculations and energy-yield simulation using PVsyst and Helioscope.</p></div>
+    <div class="card"><div class="ico">🗂️</div><h3>EPLAN Database Setup</h3><p>Client-specific macros, placeholder objects and templates that cut your design cycle time on every future project.</p></div>
+  </div>
+</div>
+</section>
+
+<section id="studies" class="alt">
+<div class="wrap">
+  <div class="eyebrow">Power System Studies</div>
+  <h2>Know your system works before it’s energised</h2>
+  <p class="sub">Studies carried out in ETAP and delivered as a clear report your client, consultant or authority can review.</p>
+  <div class="grid">
+    <div class="card"><h3>Load Flow</h3><p>Verify voltage profiles, loading of transformers and cables, and power factor under normal and future operating scenarios.</p></div>
+    <div class="card"><h3>Short Circuit</h3><p>Calculate fault levels to confirm breaker and busbar ratings are adequate across the whole network.</p></div>
+    <div class="card"><h3>Protection Coordination</h3><p>Time-current coordination so only the device closest to the fault trips, keeping the rest of your plant running.</p></div>
+  </div>
+  <p style="margin-top:28px"><a class="btn btn-p" href="#quote">Request a Study Quote</a></p>
+</div>
+</section>
+
+<section id="process">
+<div class="wrap">
+  <div class="eyebrow">How it works</div>
+  <h2>A simple, predictable process</h2>
+  <p class="sub">No surprises on scope, timeline or cost.</p>
+  <div class="steps">
+    <div class="step"><h3>Share your requirements</h3><p>Send drawings, load lists, specs or just a description of the job.</p></div>
+    <div class="step"><h3>Get a clear quote</h3><p>Fixed scope, price and delivery date, usually within 24 hours.</p></div>
+    <div class="step"><h3>Design &amp; review</h3><p>Regular updates and a revision round so the output matches your needs.</p></div>
+    <div class="step"><h3>Final delivery</h3><p>Editable source files and PDFs, ready for approval or manufacturing.</p></div>
+  </div>
+</div>
+</section>
+
+<section id="work" class="alt">
+<div class="wrap">
+  <div class="eyebrow">Selected work</div>
+  <h2>Recent switchgear projects</h2>
+  <p class="sub">A sample of panels designed from specification to workshop drawings.</p>
+  <div class="grid">
+    <div class="card proj"><a href="portfolio-projects/MCC-with-VFD-and-DOL-Starter.html"><small>PrismaSet International</small><h3>MCC Panel with DOL &amp; VFD Starters</h3><p>Motor control centre combining direct-online and variable frequency drive feeders.</p><span class="more">View project →</span></a></div>
+    <div class="card proj"><a href="portfolio-projects/Sivcon_S8_form_4b_MDB.html"><small>Sivacon S8 · Form 4B</small><h3>Main Distribution Board</h3><p>High-integrity MDB with Form 4B internal separation.</p><span class="more">View project →</span></a></div>
+    <div class="card proj"><a href="portfolio-projects/SMDB_PowerLine_PLUS_M_Enclosure-16_Ways.html"><small>PowerLine PLUS M</small><h3>16-Way Sub Main Distribution Board</h3><p>Compact SMDB with clearly organised outgoing ways.</p><span class="more">View project →</span></a></div>
+  </div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+  <div class="eyebrow">What colleagues say</div>
+  <h2>Reliable, thorough and easy to work with</h2>
+  <p class="sub" style="margin-bottom:28px"></p>
+  <div class="grid">
+    <div class="card quote"><p>“Her determination and quick learning skills have consistently impressed me. Sidra approaches challenges with a positive attitude and a proactive mindset.”</p><footer><b>Shahraiz Khan</b>Head of Engineering, Qetaf Electrics</footer></div>
+    <div class="card quote"><p>“Her task completion history is the best. She leaves no loose ends in her work, preventing unnecessary hassle.”</p><footer><b>Shariq Siddiq</b>Head of Department, IBMS Division</footer></div>
+    <div class="card quote"><p>“A quick learner who consistently produced high-quality work and contributed to the success of several key projects.”</p><footer><b>Syed Jahangir Sami</b>Deputy Manager, BMS Division</footer></div>
+  </div>
+</div>
+</section>
+
+<section id="faq" class="alt">
+<div class="wrap" style="max-width:800px">
+  <div class="eyebrow">FAQ</div>
+  <h2>Common questions</h2>
+  <details><summary>What do I need to send for a quote?</summary><p>Any of: single line diagram, load list, project specification, enclosure system preference and your deadline. If you only have a rough idea, send that and I will ask the right questions.</p></details>
+  <details><summary>How quickly can you deliver?</summary><p>It depends on scope. Most panel designs and studies are quoted with a firm delivery date, and urgent jobs can often be prioritised.</p></details>
+  <details><summary>Which software and standards do you work with?</summary><p>EPLAN Electric P8, EPLAN ProPanel, AutoCAD, ETAP, Simaris, Easy Prisma, PVsyst and Helioscope, with designs following IEC standards.</p></details>
+  <details><summary>Will I get editable files?</summary><p>Yes. You receive PDFs plus the native source files so your team can modify and reuse them.</p></details>
+  <details><summary>Do you work with clients outside Pakistan?</summary><p>Yes. I regularly collaborate with international clients and teams remotely across time zones.</p></details>
+</div>
+</section>
+
+<section id="quote" class="contact">
+<div class="wrap contact-grid">
+  <div>
+    <div class="eyebrow">Get a quote</div>
+    <h2>Let’s talk about your project</h2>
+    <p>Fill in the form and send it by WhatsApp or email. You will get a reply with scope, price and timeline, usually within 24 hours.</p>
+    <ul class="clist">
+      <li>✉️ <a href="mailto:sidratulmuntaha135@gmail.com">sidratulmuntaha135@gmail.com</a></li>
+      <li>📞 <a href="tel:+923402367511">+92 340 2367511</a></li>
+      <li>💬 <a href="https://wa.me/923402367511" target="_blank" rel="noopener">WhatsApp</a></li>
+      <li>🔗 <a href="https://www.linkedin.com/in/sidra-tul-muntaha-ghouri/" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li>📄 <a href="assets/docs/Sidra_Tul_Muntaha_CV.pdf">Download my CV</a></li>
+    </ul>
+  </div>
+  <form id="qf" onsubmit="return false">
+    <div class="row">
+      <label>Your name<input id="n" required placeholder="Full name"></label>
+      <label>Company<input id="c" placeholder="Company (optional)"></label>
+    </div>
+    <div class="row">
+      <label>Email<input id="e" type="email" required placeholder="you@company.com"></label>
+      <label>Service needed
+        <select id="s">
+          <option>LV Switchgear Panel Design</option>
+          <option>Power System Study</option>
+          <option>Drafting &amp; Documentation</option>
+          <option>BOM &amp; Estimation</option>
+          <option>Solar PV Design</option>
+          <option>Other</option>
+        </select>
+      </label>
+    </div>
+    <label>Project details<textarea id="m" rows="4" placeholder="Describe the project, ratings, deadline…"></textarea></label>
+    <div class="fbtns">
+      <button class="btn btn-wa" id="wa">Send via WhatsApp</button>
+      <button class="btn btn-em" id="em">Send via Email</button>
+    </div>
+    <p class="note">Your details go straight to my WhatsApp or email app. Nothing is stored on this site.</p>
+  </form>
+</div>
+</section>
+
+</main>
+
+<footer class="site">
+<div class="wrap">
+  <span>© <span id="y"></span> Sidra Tul Muntaha · Electrical Design Engineer, Karachi</span>
+  <span><a href="https://www.linkedin.com/in/sidra-tul-muntaha-ghouri/">LinkedIn</a> · <a href="https://github.com/Sidra-Tul-Muntaha-Ghouri">GitHub</a> · <a href="https://www.youtube.com/@sidratulmuntahaghouri">YouTube</a></span>
+</div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/923402367511?text=Hi%20Sidra%2C%20I%20need%20a%20quote." target="_blank" rel="noopener">💬 Get a quote</a>
+
+<script>
+document.getElementById('y').textContent=new Date().getFullYear();
+function build(){
+  var f=document.getElementById('qf');
+  if(!f.reportValidity())return null;
+  var v=function(i){return document.getElementById(i).value.trim()};
+  return 'Quote request\nName: '+v('n')+'\nCompany: '+(v('c')||'-')+'\nEmail: '+v('e')+'\nService: '+v('s')+'\nDetails: '+(v('m')||'-');
+}
+document.getElementById('wa').onclick=function(){
+  var t=build();if(t)window.open('https://wa.me/923402367511?text='+encodeURIComponent(t),'_blank');
+};
+document.getElementById('em').onclick=function(){
+  var t=build();if(t)location.href='mailto:sidratulmuntaha135@gmail.com?subject='+encodeURIComponent('Quote request: '+document.getElementById('s').value)+'&body='+encodeURIComponent(t);
+};
+</script>
+</body>
+</html>
